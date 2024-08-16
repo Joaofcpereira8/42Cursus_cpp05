@@ -19,7 +19,7 @@ class RobotomyRequestForm: public AForm {
 	private:
 		std::string target;
 	public:
-		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(std::string aTarget);
 		RobotomyRequestForm(const RobotomyRequestForm& idemRobot);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& copyRobot);
 		~RobotomyRequestForm();
