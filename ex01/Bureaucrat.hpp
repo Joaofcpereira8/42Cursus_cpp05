@@ -15,6 +15,9 @@
 
 # include <iostream>
 # include <exception>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -29,6 +32,11 @@ class Bureaucrat {
 
 		std::string getName(void) const;
 		int getGrade(void) const;
+
+		void decrementGrade(void);
+		void incrementGrade(void);
+
+		void signForm(Form& form);
 
 		class GradeTooHighException: public std::exception {
 			public:

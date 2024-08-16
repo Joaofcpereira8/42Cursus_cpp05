@@ -30,6 +30,9 @@ class Bureaucrat {
 		std::string getName(void) const;
 		int getGrade(void) const;
 
+		void decrementGrade(void);
+		void incrementGrade(void);
+
 		class GradeTooHighException: public std::exception {
 			public:
 				virtual const char* what() const throw();

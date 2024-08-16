@@ -11,36 +11,25 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
-	try {
-		Bureaucrat first("Alice", 0);
-		std::cout << first;
-	} catch (Bureaucrat::GradeTooHighException &e) {
-		std::cerr << "Caught: " << e.what() << std::endl;
-	} catch (Bureaucrat::GradeTooLowException &e) {
-		std::cerr << "Caught: " << e.what() << std::endl;
+	try
+	{
+		Bureaucrat valid("valid", 100);
+		Form Formula("Formula", 90, 110);
+		Form test("teste", 150, 145);
+		std::cout << Formula;
+		valid.signForm(Formula);
+		std::cout << Formula << std::endl;
+		valid.signForm(test);
+		std::cout << test;
+		valid.decrementGrade();
+		std::cout << valid.getName() << ", bureaucrat grade " << valid.getGrade() << std::endl;
+		std::cout << valid;
 	}
-
-	std::cout << std::endl;
-
-	try {
-		Bureaucrat second("Robert", 1);
-		std::cout << second;
-	} catch (Bureaucrat::GradeTooHighException &e) {
-		std::cerr << "Caught: " << e.what() << std::endl;
-	} catch (Bureaucrat::GradeTooLowException &e) {
-		std::cerr << "Caught: " << e.what() << std::endl;
-	}
-
-	std::cout << std::endl;
-
-	try {
-		Bureaucrat third("Chris", 151);
-		std::cout << third;
-	} catch (Bureaucrat::GradeTooHighException &e) {
-		std::cerr << "Caught: " << e.what() << std::endl;
-	} catch (Bureaucrat::GradeTooLowException &e) {
-		std::cerr << "Caught: " << e.what() << std::endl;
+	catch (const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 }

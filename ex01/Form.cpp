@@ -12,13 +12,13 @@
 
 #include "Form.hpp"
 
-Form::Form(): name("Default"), isSigned(0), signGrade(75), execGrade(75) {
+Form::Form(): name("Default"), isSigned(false), signGrade(75), execGrade(75) {
 	std::cout << "Default Form constructor called" << std::endl;
 }
 
-Form::Form(std::string nameF, bool isSignedF, int signGradeF, int execGradeF): name(nameF), isSigned(isSignedF),
+Form::Form(std::string nameF, int signGradeF, int execGradeF): name(nameF), isSigned(false),
 			signGrade(signGradeF), execGrade(execGradeF) {
-	std::cout << nameF << "Form constructor called" << std::endl;
+	std::cout << nameF << " Form constructor called" << std::endl;
 }
 
 Form::Form(const Form &idemForm): name(idemForm.name), signGrade(idemForm.signGrade), execGrade(idemForm.execGrade){
@@ -37,9 +37,11 @@ Form::~Form() {
 	std::cout << "Form destructor called" << std::endl;
 }
 
-void	Form::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() <= Form::getSignGrade())
-		Form::isSigned = 1;
+void	Form::beSigned(Bureaucrat& bureaucrat) {
+	if (bureaucrat.getGrade() <= getSignGrade())
+		isSigned = true;
+	else
+		throw GradeTooLowException();
 }
 
 std::string Form::getName() {

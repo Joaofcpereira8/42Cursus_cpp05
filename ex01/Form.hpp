@@ -17,6 +17,8 @@
 # include <exception>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 	private:
 		const std::string name;
@@ -25,7 +27,7 @@ class Form {
 		const int execGrade;
 	public:
 		Form();
-		Form(std::string nameF, bool isSignedF, int signGradeF, int execGradeF);
+		Form(std::string nameF, int signGradeF, int execGradeF);
 		Form(const Form& idemForm);
 		Form &operator=(const Form& copyForm);
 		~Form();
