@@ -20,7 +20,7 @@ PURPLE  = \033[1;35m
 CYAN    = \033[1;36m
 WHITE   = \033[1;37m
 
-NAME = ex02
+NAME = ex03
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98
@@ -32,6 +32,7 @@ SRCS = main.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
 		PresidentialPardonForm.cpp \
+		Intern.cpp \
 
 OBJS = $(SRCS:%.cpp=%.o)
 
@@ -40,14 +41,14 @@ all: $(NAME)
 $(NAME): $(OBJS)
 		@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 		clear
-		echo "   _____ _____  _____   ___  _____   ________   _____ ___  ";
-		echo "  / ____|  __ \|  __ \ / _ \| ____| |  ____\ \ / / _ \__ \ ";
-		echo " | |    | |__) | |__) | | | | |__   | |__   \ V / | | | ) |";
-		echo " | |    |  ___/|  ___/| | | |___ \  |  __|   > <| | | |/ / ";
-		echo " | |____| |    | |    | |_| |___) | | |____ / . \ |_| / /_ ";
-		echo "  \_____|_|    |_|     \___/|____/  |______/_/ \_\___/____|";
-		echo "                                                           ";
-		echo "                                                           ";
+		echo "   _____ _____  _____   ___  _____   ________   _____ ____  ";
+		echo "  / ____|  __ \|  __ \ / _ \| ____| |  ____\ \ / / _ \___ \ ";
+		echo " | |    | |__) | |__) | | | | |__   | |__   \ V / | | |__) |";
+		echo " | |    |  ___/|  ___/| | | |___ \  |  __|   > <| | | |__ < ";
+		echo " | |____| |    | |    | |_| |___) | | |____ / . \ |_| |__) |";
+		echo "  \_____|_|    |_|     \___/|____/  |______/_/ \_\___/____/ ";
+		echo "                                                            ";
+		echo "                                                            ";
 
 clean:
 	@$(RM) $(OBJS) $(NAME)

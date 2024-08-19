@@ -14,40 +14,11 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main() {
-	// Expected behavior
-	try {
-		Bureaucrat BurA("other", 110);
-		ShrubberyCreationForm FormA("Formâge A");
-		std::cout << FormA << std::endl;
-		//FormA.beSigned(BurA);
-		std::cout << FormA << std::endl;
-		BurA.executeForm(FormA);
-	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "============" << std::endl;
-	try {
-		Bureaucrat BurA("other", 72);
-		RobotomyRequestForm FormA("hellooo");
-		std::cout << FormA << std::endl;
-		FormA.beSigned(BurA);
-		std::cout << FormA << std::endl;
-		BurA.executeForm(FormA);
-	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "============" << std::endl;
-	try {
-		Bureaucrat BurA("other", 24);
-		PresidentialPardonForm FormA("hellooo");
-		std::cout << FormA << std::endl;
-		FormA.beSigned(BurA);
-		FormA.execute(BurA);
-		std::cout << FormA << std::endl;
-	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << "============" << std::endl;
+	Intern someRandomIntern;
+	AForm* rrf;
+	rrf = someRandomIntern.makeForm("PresidentialPardon", "Bender");
+	rrf->formExecute();
 }
