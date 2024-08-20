@@ -11,14 +11,19 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "Intern.hpp"
+# include "Intern.hpp"
 
 int main() {
-	Intern someRandomIntern;
-	AForm* rrf;
-	rrf = someRandomIntern.makeForm("PresidentialPardon", "Bender");
-	rrf->formExecute();
+	try {
+		Intern someRandomIntern;
+		AForm* rrf;
+		//rrf = someRandomIntern.makeForm("RobotomyRequest", "Bender");
+		//rrf = someRandomIntern.makeForm("PresidentialPardon", "Bender");
+		rrf = someRandomIntern.makeForm("ShruberryCreation", "Bender");
+		//rrf = someRandomIntern.makeForm("SOMETHING", "Bender");
+		rrf->formExecute();
+		delete rrf;
+	} catch (const Intern::FormNotExist& e) {
+		std::cerr << e.what() <<std::endl;
+	}
 }

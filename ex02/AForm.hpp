@@ -52,6 +52,10 @@ class AForm {
 			virtual const char* what() const throw();
 		};
 
+		class GradeTooLowToExec: public std::exception {
+			virtual const char* what() const throw();
+		};
+
 		void execute(Bureaucrat const & executor) const;
 
 		virtual void formExecute(void) const = 0;

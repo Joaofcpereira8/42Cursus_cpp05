@@ -56,8 +56,8 @@ void ShrubberyCreationForm::formExecute() const {
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) {
-	if (executor.getGrade() <= getExecGrade())
-		std::cout << executor.getName() << " has signed and has the grade to execute the form" << std::endl;
+	if (executor.getGrade() <= getExecGrade() && getIsSigned())
+		std::cout << executor.getName() << " has the grade to execute the form" << std::endl;
 	else
 		throw GradeTooLowException();
 }

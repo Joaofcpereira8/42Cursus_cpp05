@@ -41,7 +41,7 @@ void	Form::beSigned(Bureaucrat& bureaucrat) {
 	if (bureaucrat.getGrade() <= getSignGrade())
 		isSigned = true;
 	else
-		throw GradeTooLowException();
+		throw Form::GradeTooLowException();
 }
 
 std::string Form::getName() {

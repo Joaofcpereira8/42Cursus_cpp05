@@ -74,9 +74,13 @@ void Bureaucrat::decrementGrade() {
 
 void Bureaucrat::executeForm(const AForm &form) {
 	try {
-		form.formExecute();
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
-	} catch (std::exception &e) {
+		if (form.getExecGrade() < getGrade())
+			throw AForm::GradeTooLowToExec();
+		if (!form.getIsSigned())
+			throw AForm::FormNotSigned();
+		form.execute(*this);
+	}
+	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 }

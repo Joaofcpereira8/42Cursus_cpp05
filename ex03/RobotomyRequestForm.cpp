@@ -54,4 +54,5 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) {
 		std::cout << executor.getName() << " has signed and has the grade to execute the form" << std::endl;
 	else
 		throw GradeTooLowException();
+
 }

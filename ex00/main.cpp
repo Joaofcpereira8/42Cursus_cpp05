@@ -14,7 +14,9 @@
 
 int main() {
 	try {
-		Bureaucrat first("Alice", 0);
+		Bureaucrat first("Alice", 2);
+		std::cout << first;
+		first.incrementGrade();
 		std::cout << first;
 	} catch (Bureaucrat::GradeTooHighException &e) {
 		std::cerr << "Caught: " << e.what() << std::endl;

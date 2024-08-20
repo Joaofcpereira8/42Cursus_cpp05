@@ -25,7 +25,6 @@ int main() {
 		valid.signForm(test);
 		std::cout << test;
 		valid.decrementGrade();
-		std::cout << valid.getName() << ", bureaucrat grade " << valid.getGrade() << std::endl;
 		std::cout << valid;
 	}
 	catch (const std::exception& e)

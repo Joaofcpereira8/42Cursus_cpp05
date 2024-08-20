@@ -29,7 +29,7 @@ class AForm {
 		AForm(std::string nameF, int signGradeF, int execGradeF);
 		AForm(const AForm& idemAForm);
 		AForm &operator=(const AForm& copyAForm);
-		~AForm();
+		virtual ~AForm();
 
 		void beSigned(Bureaucrat& bureaucrat);
 
@@ -49,6 +49,10 @@ class AForm {
 		};
 
 		class FormNotSigned: public std::exception {
+			virtual const char* what() const throw();
+		};
+
+		class GradeTooLowToExec: public std::exception {
 			virtual const char* what() const throw();
 		};
 

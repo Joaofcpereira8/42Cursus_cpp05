@@ -18,12 +18,13 @@
 int main() {
 	// Expected behavior
 	try {
-		Bureaucrat BurA("other", 110);
+		Bureaucrat BurA("other", 140);
 		ShrubberyCreationForm FormA("Formâge A");
-		std::cout << FormA << std::endl;
-		//FormA.beSigned(BurA);
-		std::cout << FormA << std::endl;
+		std::cout << FormA;
+		BurA.signForm(FormA);
 		BurA.executeForm(FormA);
+		//FormA.execute(BurA);
+		std::cout << FormA << std::endl;
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
