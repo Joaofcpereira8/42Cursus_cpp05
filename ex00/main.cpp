@@ -14,7 +14,7 @@
 
 int main() {
 	try {
-		Bureaucrat first("Alice", 2);
+		Bureaucrat first("Alice", 1);
 		std::cout << first;
 		first.incrementGrade();
 		std::cout << first;

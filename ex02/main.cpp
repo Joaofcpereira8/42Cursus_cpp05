@@ -18,7 +18,7 @@
 int main() {
 	// Expected behavior
 	try {
-		Bureaucrat BurA("other", 140);
+		Bureaucrat BurA("other", 100);
 		ShrubberyCreationForm FormA("Formâge A");
 		std::cout << FormA;
 		BurA.signForm(FormA);

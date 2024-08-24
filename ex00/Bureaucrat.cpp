@@ -16,6 +16,7 @@ Bureaucrat::Bureaucrat(): name("Default"), grade(75) {
 	std::cout << "Default Bureaucrat constructor called" << std::endl;
 }
 
+//when a part of code encounters an error or a situation it cannot handle, it "throws" an exception
 Bureaucrat::Bureaucrat(std::string addName, int addGrade): name(addName), grade(addGrade) {
 	if (grade < 1) {
 		throw GradeTooHighException();
@@ -39,8 +40,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copyBureau) {
 	return *this;
 }
 
-Bureaucrat::~Bureaucrat()
-{
+Bureaucrat::~Bureaucrat() {
 	std::cout << name << " Bureaucrat destructor called" << std::endl;
 }
 
