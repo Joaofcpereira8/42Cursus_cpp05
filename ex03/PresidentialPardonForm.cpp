@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:22:06 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/08/16 16:22:07 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:32:39 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,15 @@ void PresidentialPardonForm::formExecute() const {
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) {
-	if (executor.getGrade() <= getExecGrade())
-		std::cout << executor.getName() << " has signed and has the grade to execute the form" << std::endl;
-	else
-		throw GradeTooLowException();
+	try
+	{
+		if (executor.getGrade() <= getExecGrade())
+			std::cout << executor.getName() << " has signed and has the grade to execute the form" << std::endl;
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 15:39:15 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/08/14 15:39:16 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:25:11 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@ Form::Form(): name("Default"), isSigned(false), signGrade(75), execGrade(75) {
 
 Form::Form(std::string nameF, int signGradeF, int execGradeF): name(nameF), isSigned(false),
 			signGrade(signGradeF), execGrade(execGradeF) {
+	if (signGradeF < 1) {
+		throw Bureaucrat::GradeTooHighException();
+	}
+	else if (signGradeF > 150) {
+		throw Bureaucrat::GradeTooLowException();
+	}
+	if (execGradeF < 1) {
+		throw Bureaucrat::GradeTooHighException();
+	}
+	else if (execGradeF > 150) {
+		throw Bureaucrat::GradeTooLowException();
+	}
 	std::cout << nameF << " Form constructor called" << std::endl;
 }
 
@@ -41,7 +53,7 @@ void	Form::beSigned(Bureaucrat& bureaucrat) {
 	if (bureaucrat.getGrade() <= getSignGrade())
 		isSigned = true;
 	else
-		throw Form::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 }
 
 std::string Form::getName() {
@@ -58,14 +70,6 @@ int Form::getSignGrade() {
 
 int Form::getExecGrade() {
 	return execGrade;
-}
-
-const char *Form::GradeTooLowException::what() const throw() {
-	return "Grade too low!";
-}
-
-const char *Form::GradeTooHighException::what() const throw() {
-	return "Grade too high!";
 }
 
 std::ostream& operator<<(std::ostream& os, Form& form) {

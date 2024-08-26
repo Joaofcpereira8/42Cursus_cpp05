@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:21:23 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/08/16 16:21:24 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:34:13 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,15 @@ void ShrubberyCreationForm::formExecute() const {
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) {
-	if (executor.getGrade() <= getExecGrade() && getIsSigned())
-		std::cout << executor.getName() << " has the grade to execute the form" << std::endl;
-	else
-		throw GradeTooLowException();
+	try
+	{
+		if (executor.getGrade() <= getExecGrade() && getIsSigned())
+			std::cout << executor.getName() << " has the grade to execute the form" << std::endl;
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

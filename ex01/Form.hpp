@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 15:36:25 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/08/14 15:36:26 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:24:57 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,6 @@ class Form {
 		bool getIsSigned(void);
 		int getSignGrade(void);
 		int getExecGrade(void);
-
-		class GradeTooHighException: public std::exception {
-		public:
-			virtual const char* what() const throw();
-		};
-
-		class GradeTooLowException: public std::exception {
-		public:
-			virtual const char* what() const throw();
-		};
 };
 
 std::ostream& operator<<(std::ostream& os, Form& form);

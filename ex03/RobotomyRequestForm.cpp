@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:21:44 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/08/16 16:21:45 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:33:52 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,15 @@ void RobotomyRequestForm::formExecute() const {
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) {
-	if (executor.getGrade() <= getExecGrade() && getIsSigned())
-		std::cout << executor.getName() << " has signed and has the grade to execute the form" << std::endl;
-	else
-		throw GradeTooLowException();
-
+	try
+	{
+		if (executor.getGrade() <= getExecGrade() && getIsSigned())
+			std::cout << executor.getName() << " has signed and has the grade to execute the form" << std::endl;
+		else
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
