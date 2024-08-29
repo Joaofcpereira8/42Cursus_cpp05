@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 16:20:53 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/08/26 18:39:45 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/08/16 16:20:54 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ class AForm {
 			virtual const char* what() const throw();
 		};
 
-		void execute(Bureaucrat const & executor) const;
-
-		virtual void formExecute(void) const = 0;
+		virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, AForm& AForm);

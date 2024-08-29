@@ -14,8 +14,7 @@
 #include "Form.hpp"
 
 int main() {
-	try
-	{
+	try {
 		Bureaucrat valid("valid", 100);
 		Form Formula("Formula", 90, 110);
 		Form test("teste", 150, 145);
@@ -26,9 +25,7 @@ int main() {
 		std::cout << test;
 		valid.decrementGrade();
 		std::cout << valid;
-	}
-	catch (const std::exception& e)
-	{
+	} catch (const std::exception& e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 }

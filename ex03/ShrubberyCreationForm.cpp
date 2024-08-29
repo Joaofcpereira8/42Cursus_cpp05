@@ -33,33 +33,29 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
-void ShrubberyCreationForm::formExecute() const {
-	std::ofstream fileToCreate;
-	std::string fileName = this->target + "_shruberry";
-	fileToCreate.open(fileName.c_str());
-	if (!fileToCreate.is_open()) {
-		std::cout << "Failed to open file!" << std::endl;
-		return;
-	}
-	fileToCreate << "       _-_" << std::endl;
-	fileToCreate << "    /~~   ~~\\" << std::endl;
-	fileToCreate << " /~~         ~~\\" << std::endl;
-	fileToCreate << "{               }" << std::endl;
-	fileToCreate << " \\  _-     -_  /" << std::endl;
-	fileToCreate << "   ~  \\\\ //  ~" << std::endl;
-	fileToCreate << "_- -   | | _- _" << std::endl;
-	fileToCreate << "  _ -  | |   -_" << std::endl;
-	fileToCreate << "      // \\\\" << std::endl;
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+	try {
+		if (executor.getGrade() <= getExecGrade() && getIsSigned()) {
+			std::ofstream fileToCreate;
+			std::string fileName = this->target + "_shruberry";
+			fileToCreate.open(fileName.c_str());
+			if (!fileToCreate.is_open()) {
+				std::cout << "Failed to open file!" << std::endl;
+				return;
+			}
+			fileToCreate << "       _-_" << std::endl;
+			fileToCreate << "    /~~   ~~\\" << std::endl;
+			fileToCreate << " /~~         ~~\\" << std::endl;
+			fileToCreate << "{               }" << std::endl;
+			fileToCreate << " \\  _-     -_  /" << std::endl;
+			fileToCreate << "   ~  \\\\ //  ~" << std::endl;
+			fileToCreate << "_- -   | | _- _" << std::endl;
+			fileToCreate << "  _ -  | |   -_" << std::endl;
+			fileToCreate << "      // \\\\" << std::endl;
 
-	fileToCreate.close();
-	std::cout << "Shruberry tree created!" << std::endl;
-}
-
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) {
-	try
-	{
-		if (executor.getGrade() <= getExecGrade() && getIsSigned())
-			std::cout << executor.getName() << " has the grade to execute the form" << std::endl;
+			fileToCreate.close();
+			std::cout << "Shruberry tree created!" << std::endl;
+		}
 		else
 			throw Bureaucrat::GradeTooLowException();
 	}

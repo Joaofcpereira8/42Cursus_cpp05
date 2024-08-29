@@ -15,13 +15,16 @@
 
 int main() {
 	try {
+		Bureaucrat someone ("Milo", 5);
 		Intern someRandomIntern;
 		AForm* rrf;
 		//rrf = someRandomIntern.makeForm("RobotomyRequest", "Bender");
 		//rrf = someRandomIntern.makeForm("PresidentialPardon", "Bender");
-		rrf = someRandomIntern.makeForm("ShruberryCreation", "Bender");
-		//rrf = someRandomIntern.makeForm("SOMETHING", "Bender");
-		rrf->formExecute();
+		//rrf = someRandomIntern.makeForm("ShruberryCreation", "Bender");
+		rrf = someRandomIntern.makeForm("SOMETHING", "Bender");
+		someone.executeForm(*rrf);
+		someone.signForm(*rrf);
+		someone.executeForm(*rrf);
 		delete rrf;
 	} catch (const Intern::FormNotExist& e) {
 		std::cerr << e.what() <<std::endl;

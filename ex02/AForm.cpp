@@ -81,7 +81,6 @@ const char *AForm::GradeTooLowToExec::what() const throw() {
 }
 
 void AForm::execute(const Bureaucrat &executor) const {
-		formExecute();
 		std::cout << executor.getName() << " executed " << getName() << std::endl;
 }
 

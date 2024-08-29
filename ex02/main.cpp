@@ -23,7 +23,6 @@ int main() {
 		std::cout << FormA;
 		BurA.signForm(FormA);
 		BurA.executeForm(FormA);
-		//FormA.execute(BurA);
 		std::cout << FormA << std::endl;
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
@@ -45,7 +44,7 @@ int main() {
 		PresidentialPardonForm FormA("hellooo");
 		std::cout << FormA << std::endl;
 		FormA.beSigned(BurA);
-		FormA.execute(BurA);
+		BurA.executeForm(FormA);
 		std::cout << FormA << std::endl;
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
